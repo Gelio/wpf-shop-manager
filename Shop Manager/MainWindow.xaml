@@ -34,7 +34,6 @@
             </TabItem>
             <TabItem Header="Warehouse">
                 <DataGrid ItemsSource="{Binding ShopItems}" AutoGenerateColumns="False" CanUserAddRows="True">
-
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
                         <DataGridTextColumn Header="Description" Binding="{Binding Description}" />

@@ -51,5 +51,10 @@ namespace Shop_Manager
             Price = price;
             Category = category;
         }
+
+        public ShopItem()
+        {
+            
+        }
     }
 }
