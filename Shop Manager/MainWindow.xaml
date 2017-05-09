@@ -30,8 +30,51 @@
 
         <TabControl>
             <TabItem Header="Shop">
-                <ListBox>
-                    
+                <ListBox ItemsSource="{Binding ShopItems}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Height="80" x:Name="ShopGrid">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition MinWidth="400" Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                                    <ColumnDefinition Width="100"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="2*"></RowDefinition>
+                                        <RowDefinition Height="2*"></RowDefinition>
+                                        <RowDefinition Height="*"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Text="{Binding Name}" FontSize="18" FontWeight="Bold" />
+                                    <TextBlock Text="{Binding Description}" FontSize="14" Grid.Row="1" />
+                                    <TextBlock FontSize="12" FontWeight="Bold" Grid.Row="2">
+                                        Category:
+                                        <TextBlock Text="{Binding Category, Converter={StaticResource ShopItemCategoryConverter}}" FontWeight="Normal"/>
+                                    </TextBlock>
+                                </Grid>
+
+                                <TextBlock Grid.Column="1" FontSize="18" FontWeight="Bold" VerticalAlignment="Center" Margin="0,0,10,0" TextAlignment="Right">
+                                    Price:
+                                    <TextBlock Text="{Binding Price}" FontWeight="Normal"/>
+                                </TextBlock>
+
+                                <Button Click="AddItemToCart" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">Add to cart</Button>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="ListBoxItem">
+                            <Style.Triggers>
+                                <Trigger Property="ItemsControl.AlternationIndex" Value="0">
+                                    <Setter Property="Background" Value="#FF4C85FF"></Setter>
+                                </Trigger>
+                                <Trigger Property="ItemsControl.AlternationIndex" Value="1">
+                                    <Setter Property="Background" Value="#FFFF8C7C"></Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ListBox.ItemContainerStyle>
                 </ListBox>
             </TabItem>
             <TabItem Header="Warehouse">
@@ -50,3 +93,6 @@
         </TabControl>
     </DockPanel>
 </Window>
+
+
+

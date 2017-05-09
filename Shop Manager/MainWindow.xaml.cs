@@ -59,5 +59,10 @@ namespace Shop_Manager
             ShopItems.Add(new ShopItem("Apple", "Fresh and tasty", 1.2, ShopItemCategory.Food));
             ShopItems.Add(new ShopItem("Strawberries", "Red craziness", 2, ShopItemCategory.Food));
         }
+
+        private void AddItemToCart(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(this, "Added item to cart!");
+        }
     }
 }
