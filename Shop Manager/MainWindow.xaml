@@ -5,8 +5,48 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Shop_Manager"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+        Title="MainWindow" Height="600" Width="800"
+        MinWidth="500" MinHeight="500"
+        WindowStartupLocation="CenterScreen">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="File">
+                <MenuItem Header="Load" IsEnabled="False"></MenuItem>
+                <MenuItem Header="Save" IsEnabled="False"></MenuItem>
+                <Separator />
+                <MenuItem Header="Exit" Click="MenuItemExitOnClick"></MenuItem>
+
+            </MenuItem>
+            <MenuItem Header="Products">
+                <MenuItem Header="Add products" />
+                <MenuItem Header="Clear products" IsEnabled="False"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="About" Click="MenuItemAboutClick"/>
+        </Menu>
+
+        <TabControl>
+            <TabItem Header="Shop">
+                <TextBlock>Items list here</TextBlock>
+            </TabItem>
+            <TabItem Header="Warehouse">
+                <TextBlock>Warehouse list here</TextBlock>
+            </TabItem>
+            <TabItem Header="Cart" IsEnabled="False" />
+        </TabControl>
+    </DockPanel>
 </Window>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

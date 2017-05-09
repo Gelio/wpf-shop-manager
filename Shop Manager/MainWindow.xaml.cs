@@ -24,5 +24,15 @@ namespace Shop_Manager
         {
             InitializeComponent();
         }
+
+        private void MenuItemExitOnClick(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void MenuItemAboutClick(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(this, "This is a simple shop manager application.", "About", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
     }
 }
