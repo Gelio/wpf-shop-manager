@@ -1,0 +1,220 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0049)http://www.mini.pw.edu.pl/~swiechowskim/task.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" class="gr__mini_pw_edu_pl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>WPF - część pierwsza</title>
+    
+</head>
+<body data-gr-c-s-loaded="true">
+    <h4>WPF - część pierwsza</h4>
+    <p>Shop manager</p>
+    <ul>
+        <li><a href="http://www.mini.pw.edu.pl/~swiechowskim/lab.exe">Aplikacja przykładowa</a></li>
+        <li>
+            Opis:
+            <ul>
+                <li>zadanie polega na napisaniu prostej aplikacji do zarządzania produktami w sklepie i składania zamówień</li>
+                <li>na każdy produkt składa się jego nazwa, krótki opis, cena i kategoria</li>
+                <li>kategoria ma jedną z trzech wartości: Food, Clothes, Electronics</li>
+                <li>możliwe jest ręczne dodawanie i edycja produktów</li>
+                <li>użytkownik może dodawać produkty do koszyka</li>
+            </ul>
+        </li>
+        <li>
+            Wymagania:
+            <ul>
+                <li>
+                    Główne okno:
+                    <ul>
+                        <li>minimalny rozmiar 500 x 500, rozmiar początkowy 800 x 600</li>
+                        <li>na górze okna pasek menu</li>
+                        <li>pozostałą część okna wypełniają zakładki o tytułach "Shop", "Warehouse" oraz nieaktywna zakładka "Cart"</li>
+                        <li>napis "Shop Manager" na pasku tytułowym okna</li>
+                        <li>okno pojawia się na środku ekranu</li>
+                    </ul>
+                </li>
+                <li>
+                    Górne menu:
+                    <ul>
+                        <li>
+                        	'File' zawiera:
+                            <ul>
+                            	<li>'Load' - nieaktywny</li>
+                                <li>'Save' - nieaktywny</li>
+                                <li>'Exit' - zamyka aplikację, oddzielony separatorem od wcześniejszych
+                            </li></ul>
+                        </li>
+                        <li>
+                        	'Products' zawiera:
+                            <ul>
+                            	<li>'Add products' - dodaje do listy przykładowe produkty</li>
+                                <li>'Clear products' - nieaktywny</li>
+                            </ul>
+                        </li>
+                        <li>'About' - wyświetla MessageBox z krótką informacją o programie (powinien zawierać ikonkę informacji)</li>
+                    </ul>
+                </li>
+                <li>
+                    Zakładki:
+                    <ul>
+                    	<!--<li>tłem dla zawartości każdej zakładki jest radialny gradient (w aplikacji przykładowej użyto: #FFFFBD7C i #FFd1FF8C)</li>-->
+                        <li>'Shop' zawiera listę wszystkich produktów dostępnych w sklepie</li>
+                        <li>pozycje parzyste i nieparzyste mają różne kolory tła (w aplikacji przykładowej użyto: #FF4C85FF i #FFFF8C7C)</li>
+                        <li>implementacja powyższej funkcjonalności musi być odporna na np. usuwanie elementów ze środka, sortowanie i inne (czyli nie może być zrealizowana wyłącznie poprzez ustawienie tła elementu w momencie dodania go do listy)</li>
+                        <li>do wyświetlania informacji o produkcie musi zostać stworzony odpowiedni szablon, elementy powinny być ustawione tak, jak w przykładowej aplikacji</li>
+                        <li>informacje o produkcie wyświetlane są czcionką 'Arial' o różnych rozmiarach (18, 14, 12)</li>
+                        <li>ceny produktu wyświetlane są zawsze z dwoma widocznymi miejscami po przecinku</li>
+                        <li>każdy produkt wyświetlany w zakładce 'Shop' zawiera przycisk 'Add to cart' powodujący wyświetlenie MessageBoxa o komunikacie: 'Added to cart'
+                        </li><li>lista w zakładce 'Shop' musi być zgodna z listą z zakładki 'Warehouse' (bindowanie)</li>
+                        <li>'Warehouse' zawiera edytowalną listę produktów dostępnych w sklepie</li>
+                        <li>można edytować istniejące produkty, dodawać nowe lub usuwać już istniejące</li>
+                        <li>lista w zakładce 'Warehouse' wyświetla dodatkowy rząd pozwalający dodać nową książkę</li>
+                        <li>kliknięcie na poszczególne kolumny powoduje sortowanie pozycji</li>
+                        <li>kategorię produktu można ustawić z pomocą listy rozwijanej</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            Uwagi:
+            <ul>
+            	<li>aplikacja jest odporna na skalowanie okna, kontrolki dostosowują się do zmian rozmiaru okna aplikacji</li>
+                <li>obie listy w przypadku zmiany rozmiaru okna lub zwiększenia liczby elementów wyświetlają scroll bary, jeśli jest to potrzebne</li>
+                <li>zawartość obu list jest synchronizowana</li>
+                <li>w razie niejasności program musi być zgodny z zachowaniem i wyglądem aplikacji przykładowej, jednak nie należy wzorować się na potencjalnych bugach</li>
+            </ul>
+        </li>
+        <li>
+            Wskazówki:
+            <ul>
+                <li>Data binding, ObservableCollection</li>
+                <li>CollectionViewSource</li>
+                <li>AlternationIndex</li>
+                <li>Trigger</li>
+                <li>ListBox, ListBox.ItemTemplate</li>
+                <li>ItemContainerStyle</li>
+                <li>DataTemplate</li>
+                <li>TabControl</li>
+                <li>Menu, MenuItem</li>
+                <li>DataGrid</li>
+            </ul>
+        </li>
+    </ul>
+
+    <ul>
+        <li>
+            Punktacja:
+            <ul>
+                <li>pełna funkcjonalność poza wyglądem pozycji na liście w zakładce 'Shop' (wygląd pozycji może być dowolny, ale musi być możliwość weryfikowania synchronizacji np. poprzez wyświetlanie tylko nazwy produktu): 4 punkty</li>
+                <li>pełna funkcjonalność poza synchronizowaniem zawartości pomiędzy listami ('Add products' dodaje książki do listy 'Shop'): 4 punkty</li>
+            </ul>
+        </li>
+    </ul>
+    <h4>WPF - część druga</h4>
+    <ul>
+        <li><a href="http://www.mini.pw.edu.pl/~swiechowskim/home.exe">Aplikacja przykładowa</a></li>
+        <li>
+            Opis:
+            <ul>
+                <li>
+                    Okno:
+                    <ul>
+                    	<li>tłem dla zawartości każdej zakładki jest radialny gradient (w aplikacji przykładowej użyto kolorów: #FFFFBD7C i #FFd1FF8C)</li>
+                        <li>tło panelu wyszukiwania jest wypełnione 
+liniowym gradientem od lewego dolnego do prawego górnego rogu (w 
+aplikacji przykładowej użyto kolorów: #FFCEF8FF i #FF41BBCF)</li>
+						<li>zakładka 'Cart' jest aktywna</li>
+                    </ul>
+                </li>
+                <li>
+                    Górne menu  rozbudowane zostało o następujące funkcjonalności:
+                    <ul>
+                        <li>
+                        	'File' zawiera aktywne przyciski:
+                            <ul>
+                            	<li>'Load' - wyświetla okno otwarcia pliku i ładuje listę produktów z pliku w formacie XML (bez zawartości koszyka)</li>
+                                <li>'Save' - wyświetla okno zapisu pliku i zapisuje aktualną listę produktów na dysku w formacie XML (bez zawartości koszyka)</li>
+                                <li>oba okna mają filtry plików ustawione na pliki XML</li>
+                            </ul>
+                        </li>
+                        <li>
+                        	'Products' zawiera aktywny przycisk:
+                            <ul>
+                                <li>'Clear products' - czyści listę produktów oraz koszyk</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    'Shop'
+                    <ul>
+                        <li>zmiana wyglądu przycisku dodawania produktu do koszyka na przycisk z ikoną</li>
+                        <li>przy próbie dodania produktu do koszyka wyświetlone zostaje dodatkowe okno z nazwą produktu, które umożliwia podanie ilości</li>
+                        <li>dodany został panel wyszukiwania, umieszczony po lewej stronie, posiadający stałą szerokość</li>
+                    </ul>
+                </li>
+                <li>
+                    Panel wyszukiwania
+                    <ul>
+                        <li>wygląd powinien być zgodny z wyglądem aplikacji przykładowej</li>
+                        <li>możliwość wyszukiwania po nazwie, przedziale cenowym oraz kategorii</li>
+                        <li>po wybraniu właściwości wyszukiwania można wprowadzać wartości</li>
+                        <li>pozostawienie pustego pola 'Name' powoduje dopasowanie wszystkich nazw</li>
+                        <li>w przypadku wprowadzenia nieprawidłowych wartości w pola określające przedział cenowy powinien zostać wyświetlony odpowiedni komunikat i ikoną błędu</li>
+                        <li>przycisk 'Search' rozpoczyna wyszukiwanie i podmienia tymczasowo listę produktów na listę produktów spełniających warunki wyszukiwania</li>
+                        <li>jeśli nie wybrano żadnej właściwości wyszukiwania po wciśnięciu przycisku 'Search' wyświetlony zostaje odpowiedni komunikat</li>
+                        <li>przycisk 'Show all' prywraca listę wszystkich produktów</li>
+                    </ul>
+                </li>
+                <li>
+                    'Cart'
+                    <ul>
+                        <li>nowa zakładka pozwalająca przeglądać listę produktów dodanych do koszyka i finalizować zamówienie</li>
+                        <li>wygląd listy produktów dodanych do koszyka powinien być wzorowany na aplikacji przykładowej</li>
+                        <li>ilość każdego produktu można odpowiednio zwiększać i zmniejszać za pomocą przycisków plus i minus</li>
+                        <li>produkty można usuwać z koszyka</li>
+                        <li>dodanie do koszyka produktu, który już się w nim znajduje, powoduje zwiększenie ilości tego produktu w koszyku</li>
+                        <li>wyświetlana jest łączna wartość zamówienia, która jest przeliczana na bieżąco</li>
+                        <li>przycisk 'Checkout' finalizuje zamówienie wyświetlając odpowiedni komunikat z łączną wartością zamówienia</li>
+                    </ul>
+                </li>
+                <li>wszystkie ikony użyte w zadaniu znajdują się w paczce <a href="http://www.mini.pw.edu.pl/~swiechowskim/resources.7z">resources</a>
+            </li></ul>
+        </li>
+        <li>
+            Dodatkowe wymagania:
+            <ul>
+                <li>obowiązkowo należy spełnić wzystkie wymagania części pierwszej zadania</li>
+                <li>należy zwrócić uwagę, aby kontrolki zachowywały się i wyglądały jak w aplikacji przykładowej (uwaga na skalowanie, zmianę zawartości itd.)</li>
+                <li>format zapisywanych plików powinien być czytelny dla człowieka</li>
+                <li>należy zadbać, aby wszystkie formularze wykorzystane w aplikacji przyjmowały tylko sensowne dane</li>
+                <li>w razie niejasności program musi być zgodny z zachowaniem i wyglądem aplikacji przykładowej (z wyjątkiem potencjalnych bugów)</li>
+            </ul>
+        </li>
+        <li>
+            Wskazówki:
+            <ul>
+                <li>RadialGradientBrush, LinearGradientBrush</li>
+                <li>LINQ</li>
+                <li>XMLSerializer</li>
+            </ul>
+        </li>
+    </ul>
+
+    <ul>
+        <li>
+            Punktacja:
+            <ul>
+                <li>dodane radialne tło do każdej zakładki i zaktualizowany wygląd listy produktów - 1 punkt</li>
+                <li>poprawny zapis i odczyt plików XML, filtry okien zapisu i odczytu - 2 punkty</li>
+                <li>wygląd panelu wyszukiwania (poprawna aktywacja i deaktywacja kontrolek, poprawne zachowanie przy skalowaniu) - 2 punkty</li>
+                <li>poprawne wyszukiwanie produktów na podstawie wprowadzonych danych i sprawdzanie poprawności wprowadzonych danych - 2 punkty</li>
+                <li>wygląd listy produktów znajdujących się w koszyku - 1 punkt</li>
+                <li>implementacja koszyka (poprawne dodawanie produktów - bez dublowania produktów, które już znajduja się w koszyku, zwiększanie i zmniejszanie ilości produktu, usuwanie produktów z koszyka i automatyczne przeliczanie wartości zamówienia) - 3 punkty</li>
+                <li>implementacja przycisków 'Clear products', 'Show all' i 'Checkout' - 1 punkt
+            </li></ul>
+        </li>
+    </ul>
+
+
+
+</body></html>
