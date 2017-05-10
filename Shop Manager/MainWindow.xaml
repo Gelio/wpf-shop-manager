@@ -32,10 +32,10 @@
 
         <TabControl SelectionChanged="TabSelectionChanged">
             <TabItem Header="Shop" x:Name="ShopTab">
-                <ListBox DataContext="{StaticResource ShopItems}" ItemsSource="{Binding}" AlternationCount="2" HorizontalContentAlignment="Stretch">
-                    <ListBox.ItemTemplate>
+                <ListView DataContext="{StaticResource ShopItems}" ItemsSource="{Binding}" AlternationCount="2" HorizontalContentAlignment="Stretch">
+                    <ListView.ItemTemplate>
                         <DataTemplate>
-                            <Grid Height="80" x:Name="ShopGrid">
+                            <Grid Height="80" x:Name="ShopGrid" Margin="2">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition MinWidth="400" Width="*"></ColumnDefinition>
                                     <ColumnDefinition Width="2*"></ColumnDefinition>
@@ -63,17 +63,21 @@
 
                                 <Button Click="AddItemToCart" Grid.Column="2">Add to cart</Button>
                             </Grid>
-                            <DataTemplate.Triggers>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Style.Triggers>
                                 <Trigger Property="ItemsControl.AlternationIndex" Value="0">
-                                    <Setter TargetName="ShopGrid" Property="Background" Value="#FF4C85FF" />
+                                    <Setter Property="Background" Value="#FF4C85FF" />
                                 </Trigger>
                                 <Trigger Property="ItemsControl.AlternationIndex" Value="1">
-                                    <Setter TargetName="ShopGrid" Property="Background" Value="#FFFF8C7C" />
+                                    <Setter Property="Background" Value="#FFFF8C7C" />
                                 </Trigger>
-                            </DataTemplate.Triggers>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
+                            </Style.Triggers>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                </ListView>
             </TabItem>
             <TabItem Header="Warehouse">
                 <DataGrid ItemsSource="{Binding ShopItems}" AutoGenerateColumns="False" CanUserAddRows="True" CanUserDeleteRows="True">
