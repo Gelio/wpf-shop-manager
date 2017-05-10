@@ -9,8 +9,10 @@
         MinWidth="500" MinHeight="500"
         WindowStartupLocation="CenterScreen">
     <Window.Resources>
-        <local:ShopItemCategoryConverter x:Key="ShopItemCategoryConverter"></local:ShopItemCategoryConverter>
-        <CollectionViewSource x:Key="ShopItemsCategories" Source="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=ShopItemsCategories}"></CollectionViewSource>
+        <local:ShopItemCategoryConverter x:Key="ShopItemCategoryConverter" />
+        <CollectionViewSource x:Key="ShopItemsCategories" Source="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=ShopItemsCategories}" />
+        <CollectionViewSource x:Key="ShopItems" Source="{Binding ShopItems}" />
+        <local:PriceConverter x:Key="PriceConverter" />
     </Window.Resources>
     <DockPanel>
         <Menu DockPanel.Dock="Top">
@@ -28,16 +30,16 @@
             <MenuItem Header="About" Click="MenuItemAboutClick"/>
         </Menu>
 
-        <TabControl>
-            <TabItem Header="Shop">
-                <ListBox ItemsSource="{Binding ShopItems}">
+        <TabControl SelectionChanged="TabSelectionChanged">
+            <TabItem Header="Shop" x:Name="ShopTab">
+                <ListBox DataContext="{StaticResource ShopItems}" ItemsSource="{Binding}" AlternationCount="2" HorizontalContentAlignment="Stretch">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <Grid Height="80" x:Name="ShopGrid">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition MinWidth="400" Width="*"></ColumnDefinition>
                                     <ColumnDefinition Width="2*"></ColumnDefinition>
-                                    <ColumnDefinition Width="100"></ColumnDefinition>
+                                    <ColumnDefinition Width="150"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
 
                                 <Grid>
@@ -56,25 +58,21 @@
 
                                 <TextBlock Grid.Column="1" FontSize="18" FontWeight="Bold" VerticalAlignment="Center" Margin="0,0,10,0" TextAlignment="Right">
                                     Price:
-                                    <TextBlock Text="{Binding Price}" FontWeight="Normal"/>
+                                    <TextBlock Text="{Binding Price, Converter={StaticResource PriceConverter}}" FontWeight="Normal" />
                                 </TextBlock>
 
-                                <Button Click="AddItemToCart" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">Add to cart</Button>
+                                <Button Click="AddItemToCart" Grid.Column="2">Add to cart</Button>
                             </Grid>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                    <ListBox.ItemContainerStyle>
-                        <Style TargetType="ListBoxItem">
-                            <Style.Triggers>
+                            <DataTemplate.Triggers>
                                 <Trigger Property="ItemsControl.AlternationIndex" Value="0">
-                                    <Setter Property="Background" Value="#FF4C85FF"></Setter>
+                                    <Setter TargetName="ShopGrid" Property="Background" Value="#FF4C85FF" />
                                 </Trigger>
                                 <Trigger Property="ItemsControl.AlternationIndex" Value="1">
-                                    <Setter Property="Background" Value="#FFFF8C7C"></Setter>
+                                    <Setter TargetName="ShopGrid" Property="Background" Value="#FFFF8C7C" />
                                 </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </ListBox.ItemContainerStyle>
+                            </DataTemplate.Triggers>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
                 </ListBox>
             </TabItem>
             <TabItem Header="Warehouse">
@@ -93,6 +91,10 @@
         </TabControl>
     </DockPanel>
 </Window>
+
+
+
+
 
 
 

@@ -64,5 +64,18 @@ namespace Shop_Manager
         {
             MessageBox.Show(this, "Added item to cart!");
         }
+
+        private void PurgeShopItems()
+        {
+            
+
+            //ShopItems.Remove(default(ShopItem));
+        }
+
+        private void TabSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (ShopTab.IsSelected)
+                PurgeShopItems();
+        }
     }
 }

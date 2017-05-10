@@ -54,6 +54,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="PriceConverter.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="ShopItem.cs" />
     <Compile Include="ShopItemCategory.cs" />

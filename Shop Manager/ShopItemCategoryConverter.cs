@@ -4,6 +4,7 @@ using System.Windows.Data;
 
 namespace Shop_Manager
 {
+    [ValueConversion(typeof(ShopItemCategory), typeof(string))]
     public class ShopItemCategoryConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
